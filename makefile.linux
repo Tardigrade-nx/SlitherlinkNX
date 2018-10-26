@@ -1,0 +1,11 @@
+OBJS = $(wildcard src/*.cpp)
+CC = g++
+COMPILER_FLAGS = -Wall
+LINKER_FLAGS = -lSDL2 -lSDL2_image -lSDL2_mixer
+OBJ_NAME = SlitherlinkNX
+
+all : $(OBJS)
+	$(CC) $(OBJS) -o $(OBJ_NAME) $(COMPILER_FLAGS) $(LINKER_FLAGS)
+
+clean :
+	rm -f $(OBJ_NAME)

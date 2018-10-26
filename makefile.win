@@ -1,0 +1,23 @@
+OBJS = $(wildcard src/*.cpp)
+CC = g++
+INCLUDE_PATHS = -IC:\mingw_dev_lib\SDL2-2.0.8\i686-w64-mingw32\include \
+                -IC:\mingw_dev_lib\SDL2-2.0.8\i686-w64-mingw32\include\SDL2 \
+                -IC:\mingw_dev_lib\SDL2_image-2.0.3\i686-w64-mingw32\include \
+                -IC:\mingw_dev_lib\SDL2_mixer-2.0.2\i686-w64-mingw32\include
+LIBRARY_PATHS = -LC:\mingw_dev_lib\SDL2-2.0.8\i686-w64-mingw32\lib \
+                -LC:\mingw_dev_lib\SDL2_image-2.0.3\i686-w64-mingw32\lib \
+                -LC:\mingw_dev_lib\SDL2_mixer-2.0.2\i686-w64-mingw32\lib
+# Add '-Wl,-subsystem,windows' to COMPILER_FLAGS to get rid of the console window
+COMPILER_FLAGS = -Wall
+LINKER_FLAGS = -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer
+OBJ_NAME = SlitherlinkNX
+
+all : $(OBJS)
+	$(CC) $(OBJS) $(INCLUDE_PATHS) $(LIBRARY_PATHS) $(COMPILER_FLAGS) $(LINKER_FLAGS) -o $(OBJ_NAME)
+	cp c:/MinGW/bin/libstdc++-6.dll .
+	cp c:/mingw_dev_lib/SDL2-2.0.8/i686-w64-mingw32/bin/SDL2.dll .
+	cp c:/mingw_dev_lib/SDL2_image-2.0.3/i686-w64-mingw32/bin/*.dll .
+	cp c:/mingw_dev_lib/SDL2_mixer-2.0.2/i686-w64-mingw32/bin/*.dll .
+
+clean :
+	rm -f $(OBJ_NAME).exe *.dll
