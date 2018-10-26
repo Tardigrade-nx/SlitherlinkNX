@@ -34,7 +34,7 @@ https://en.wikipedia.org/wiki/Slitherlink#Solution_methods
 
 ## Controls
 
-* d-pad / analog stick: move cursor
+* d-pad: move cursor
 * X/A/B/Y: draw a line, then a cross, then nothing, in the corresponding direction
 * L + X/A/B/Y: draw a cross, then a line, then nothing, in the corresponding direction
 * R: undo previous action
