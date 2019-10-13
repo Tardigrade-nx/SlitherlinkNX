@@ -53,10 +53,14 @@ It's based on SDL2, so it can be built for PC too.
 
 ## History
 
-v1.1: - Recompile with latest libnx to fix the buttons
-      - Undo = R/ZR, loop back = L/ZL
+v1.1:
 
-v1.0: First release
+* Recompile with latest libnx to fix the buttons
+* Undo = R/ZR, loop back = L/ZL
+
+v1.0
+
+* First release
 
 ## Credits
 
