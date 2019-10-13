@@ -36,8 +36,8 @@ https://en.wikipedia.org/wiki/Slitherlink#Solution_methods
 
 * d-pad: move cursor
 * X/A/B/Y: draw a line, then a cross, then nothing, in the corresponding direction
-* L + X/A/B/Y: draw a cross, then a line, then nothing, in the corresponding direction
-* R: undo previous action
+* L/ZL + X/A/B/Y: draw a cross, then a line, then nothing, in the corresponding direction
+* R/ZR: undo previous action
 * +: open menu, allowing to: retry, save state, or quit
 
 ## Installation
@@ -52,6 +52,9 @@ switch-sdl2_mixer. Then: 'make -f makefile.switch'.
 It's based on SDL2, so it can be built for PC too.
 
 ## History
+
+v1.1: - Recompile with latest libnx to fix the buttons
+      - Undo = R/ZR, loop back = L/ZL
 
 v1.0: First release
 
