@@ -51,6 +51,22 @@ extern bool g_playSounds;
 
 #ifdef __SWITCH__
 // Button events for Switch
+//
+// Switch               SDL
+// A                    SDL_CONTROLLER_BUTTON_A
+// B                    SDL_CONTROLLER_BUTTON_B
+// X                    SDL_CONTROLLER_BUTTON_X
+// Y                    SDL_CONTROLLER_BUTTON_Y
+// d-pad up             SDL_CONTROLLER_BUTTON_DPAD_LEFT
+// d-pad right          SDL_CONTROLLER_BUTTON_DPAD_RIGHT
+// d-pad down           SDL_CONTROLLER_BUTTON_MAX
+// d-pad left           SDL_CONTROLLER_BUTTON_DPAD_DOWN
+// L                    SDL_CONTROLLER_BUTTON_START
+// R                    SDL_CONTROLLER_BUTTON_LEFTSTICK
+// ZL                   SDL_CONTROLLER_BUTTON_RIGHTSTICK
+// ZR                   SDL_CONTROLLER_BUTTON_LEFTSHOULDER
+// right stick click    SDL_CONTROLLER_BUTTON_GUIDE
+// left stick click     ?
 #define BUTTON_PRESSED_VALIDATE     event.type == SDL_JOYBUTTONDOWN && event.jbutton.button == SDL_CONTROLLER_BUTTON_A
 #define BUTTON_PRESSED_BACK         event.type == SDL_JOYBUTTONDOWN && event.jbutton.button == SDL_CONTROLLER_BUTTON_B
 #define BUTTON_PRESSED_MENU         event.type == SDL_JOYBUTTONDOWN && event.jbutton.button == SDL_CONTROLLER_BUTTON_RIGHTSHOULDER
@@ -62,12 +78,12 @@ extern bool g_playSounds;
 #define BUTTON_PRESSED_LINE_RIGHT   event.type == SDL_JOYBUTTONDOWN && event.jbutton.button == SDL_CONTROLLER_BUTTON_A
 #define BUTTON_PRESSED_LINE_DOWN    event.type == SDL_JOYBUTTONDOWN && event.jbutton.button == SDL_CONTROLLER_BUTTON_B
 #define BUTTON_PRESSED_LINE_LEFT    event.type == SDL_JOYBUTTONDOWN && event.jbutton.button == SDL_CONTROLLER_BUTTON_Y
-#define BUTTON_PRESSED_UNDO         event.type == SDL_JOYBUTTONDOWN && event.jbutton.button == SDL_CONTROLLER_BUTTON_LEFTSTICK
+#define BUTTON_PRESSED_UNDO         event.type == SDL_JOYBUTTONDOWN && (event.jbutton.button == SDL_CONTROLLER_BUTTON_LEFTSTICK || event.jbutton.button == SDL_CONTROLLER_BUTTON_LEFTSHOULDER)
 #define BUTTON_HELD_UP              SDL_JoystickGetButton(g_joystick, SDL_CONTROLLER_BUTTON_DPAD_LEFT)
 #define BUTTON_HELD_RIGHT           SDL_JoystickGetButton(g_joystick, SDL_CONTROLLER_BUTTON_DPAD_RIGHT)
 #define BUTTON_HELD_DOWN            SDL_JoystickGetButton(g_joystick, SDL_CONTROLLER_BUTTON_MAX)
 #define BUTTON_HELD_LEFT            SDL_JoystickGetButton(g_joystick, SDL_CONTROLLER_BUTTON_DPAD_DOWN)
-#define BUTTON_HELD_MOD             SDL_JoystickGetButton(g_joystick, SDL_CONTROLLER_BUTTON_START)
+#define BUTTON_HELD_MOD             SDL_JoystickGetButton(g_joystick, SDL_CONTROLLER_BUTTON_START) || SDL_JoystickGetButton(g_joystick, SDL_CONTROLLER_BUTTON_RIGHTSTICK)
 #else
 // Button events for PC
 #define BUTTON_PRESSED_VALIDATE     event.type == SDL_KEYDOWN && event.key.repeat == 0 && event.key.keysym.sym == SDLK_RETURN
